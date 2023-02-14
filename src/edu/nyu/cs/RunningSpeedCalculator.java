@@ -1,6 +1,8 @@
 package edu.nyu.cs;
 
 import java.util.Scanner;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * This question is based on Question 1-10 in Liang's Intro to Java textbook.
@@ -33,6 +35,42 @@ public class RunningSpeedCalculator {
    */
   public static void main(String[] args) throws Exception {
         // complete this function to solve the problem
+
+      //figure out kilos
+        Scanner scnr = new Scanner(System.in);
+        System.out.println("How many kilometers did you run?");
+        String kilo_run_string = scnr.nextLine();
+        double kilo_run = Double.parseDouble(kilo_run_string);
+
+
+      //figure out minutes ran
+        System.out.println("How many minutes did it take you?");
+        String min_run_string = scnr.nextLine();
+        double min_ran = Double.parseDouble(min_run_string);
+
+        scnr.close();
+
+      //convert to miles 
+        double kilo_rate = 1.609344;
+        double mile_ran = kilo_run / kilo_rate ;
+
+      //convert to hours 
+      double hours = min_ran / 60;
+
+      //output mph
+      double mph = mile_ran / hours;
+      BigDecimal mph_big_decimal = new BigDecimal(mph);
+      BigDecimal mph_round = mph_big_decimal.setScale(2, RoundingMode.HALF_UP);
+
+
+
+      System.out.println("Your average speed was " + mph_round + " miles per hour.");
+
+
+
+
+
+
   }
 
 

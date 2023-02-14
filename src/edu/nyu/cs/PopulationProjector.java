@@ -23,7 +23,7 @@ import java.util.Scanner;
  * 
  * Sample output. Your program should format the output exactly like this: 
  *  Here are the projected population numbers for the next five years:
- *  - Year 2023: 333505890
+ *  - Year 2023: 333,505,890
  *  - Year 2024: 345678825 
  *  - Year 2025: 358766234 
  *  - Year 2026: 365805245 
@@ -40,6 +40,33 @@ public class PopulationProjector {
      */
     public static void main(String[] args) throws Exception {
         // complete this function to solve the problem
+
+
+        double birth_rate = 7.0;
+        double death_rate = 13.0;
+        double immigrant_rate = 45.0;
+        int current_pop = 332403650;
+        int second_in_year = 365 * 24 * 60 * 60; //31,536,000    
+
+        // difference = 1,102,240
+
+
+    
+        double num_births = second_in_year / birth_rate; //4,505,142
+        double num_deaths = second_in_year / death_rate; //2,425,846
+        double num_immigrant = second_in_year / immigrant_rate; //700,800
+
+
+        System.out.println("Here are the projected population numbers for the next five years:");
+
+        
+        for(int y = 2023; y<=2027; y++) {
+            current_pop += (num_births + num_immigrant - num_deaths);
+            System.out.println("- Year "+y+": "+current_pop);
+
+        }
+
+
     }
 
 

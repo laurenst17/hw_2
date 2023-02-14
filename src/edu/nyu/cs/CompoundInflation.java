@@ -1,6 +1,7 @@
 package edu.nyu.cs;
-
 import java.util.Scanner;
+
+
 
 /**
  * This question is inspired by Question 2-13 in Liang's Intro to Java textbook and current economic events.
@@ -24,10 +25,24 @@ import java.util.Scanner;
  *  If you save $120 with 10% annual inflation, after 6 months, your account will hold an amount equivalent to $114 today.
  */
 public class CompoundInflation {
-    
     public static void main(String[] args) {
-        
-        // complete this function to solve the problem
 
+        Scanner scnr = new Scanner(System.in);
+        System.out.println("Please enter your initial savings deposit: ");
+        String inital_dep_string = scnr.nextLine();
+        double initial_dep = Double.parseDouble(inital_dep_string);
+        scnr.close();
+
+        //computation
+        double monthly_rate = (1+(.10/12));
+        double x_compound = initial_dep/(Math.pow(monthly_rate,6));
+        x_compound = (int)Math.round(x_compound);
+
+        int x_compound_r = (int) x_compound;
+
+
+
+        System.out.println("If you save $" + inital_dep_string + " with 10% annual inflation, after 6 months, your account will hold an amount equivalent to $" + x_compound_r + " today.");
+    
     }
 }
